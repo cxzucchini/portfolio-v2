@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>James Laurence Talagon | Developer Portfolio</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            500: '#3b82f6',
+                            glow: 'rgba(59, 130, 246, 0.5)'
+                        }
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="antialiased selection:bg-zinc-800 selection:text-white">
+
+    <!-- NAVIGATION HEADER -->
+    <nav id="navbar"
+        class="fixed top-0 w-full z-50 bg-[#050505]/80 backdrop-blur-md border-b border-zinc-900 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="text-xl font-bold tracking-tighter text-white hover:text-zinc-300 transition-colors">
+                JLT.
+            </a>
+
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-zinc-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-zinc-400 hover:text-white focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="4" x2="20" y1="12" y2="12" />
+                    <line x1="4" x2="20" y1="6" y2="6" />
+                    <line x1="4" x2="20" y1="18" y2="18" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-[#050505] border-b border-zinc-900 px-6 py-4 flex flex-col space-y-4 text-sm font-medium text-zinc-400">
+            <a href="#about" class="mobile-link hover:text-white transition-colors">About</a>
+            <a href="#skills" class="mobile-link hover:text-white transition-colors">Skills</a>
+            <a href="#projects" class="mobile-link hover:text-white transition-colors">Projects</a>
+            <a href="#contact" class="mobile-link hover:text-white transition-colors">Contact</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="relative pt-32 pb-16 overflow-hidden">
+        <div class="glow-orb"></div>
+
+        <!-- HERO SECTION -->
+        <section id="hero"
+            class="max-w-7xl mx-auto px-6 min-h-[70vh] flex flex-col md:flex-row items-center justify-between reveal active gap-12">
+
+            <!-- Hero Left: Content & Bio -->
+            <div id="hero-content" class="max-w-2xl flex-1 z-10">
+                <p class="text-zinc-500 font-medium tracking-wide text-sm uppercase mb-6 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-zinc-700"></span>
+                    Iloilo City, Philippines
+                </p>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-[1.1] text-white mb-6">
+                    James Laurence <br class="hidden md:block"> Talagon.
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-light text-zinc-400 mb-6">
+                    IT Student.
+                </h2>
+
+                <!-- Dynamic Typing Effect Container -->
+                <div id="hero-typing-container" class="h-[60px] md:h-[30px] mb-8">
+                    <p id="typing-text"
+                        class="text-lg md:text-xl text-brand-500 font-medium leading-relaxed typing-cursor"></p>
+                </div>
+
+                <!-- Call To Action Buttons -->
+                <div class="flex items-center gap-6">
+                    <a href="#projects"
+                        class="bg-white text-black px-8 py-4 rounded-full font-medium hover:bg-zinc-200 hover:scale-105 transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)]">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="text-zinc-400 hover:text-white flex items-center gap-2 transition-colors">
+                        Let's connect
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero Right: Profile Image -->
+            <div id="hero-profile" class="flex-1 flex justify-center items-center w-full mt-12 md:mt-0 z-10">
+                <div class="relative w-56 h-56 md:w-72 md:h-72 animate-float tilt-element cursor-pointer group">
+                    <div
+                        class="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-2xl opacity-20 group-hover:opacity-60 transition duration-500 animate-pulse-slow">
+                    </div>
+
+                    <div
+                        class="tilt-wrapper w-full h-full rounded-full border-4 border-zinc-800 bg-zinc-900 shadow-2xl overflow-hidden relative z-10 flex items-center justify-center">
+                        <img src="./pictures/profile@axcinasc.png" alt="James Laurence Talagon"
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition duration-300"
+                            style="object-position: 50% 15%;">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 rounded-full pointer-events-none">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="max-w-7xl mx-auto px-6 py-24 md:py-32 border-t border-zinc-900/50 mt-12 reveal">
+            <div id="about-grid" class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-4">
+                    <h3 class="text-3xl font-bold tracking-tight text-white mb-4">About Me</h3>
+                </div>
+                <div class="md:col-span-8 text-zinc-400 text-lg leading-relaxed space-y-6 font-light">
+                    <p>
+                        I am currently a BS Information Technology student based in Iloilo City.
+                        My journey in tech is driven by a strong curiosity for how systems operate under the hood and a
+                        commitment to building clean, responsive applications.
+                    </p>
+                    <p>
+                        Driven by a mindset of constant learning, I focus on web development with hands-on experience
+                        across the MERN stack. Beyond writing code, I actively explore networking concepts, server-side
+                        architecture, and the security fundamentals needed to build reliable systems.
+                    </p>
+                    <p>
+                        Adaptability and practical problem-solving are core to how I work—treating every challenge as an
+                        opportunity to fix things, build solutions, and expand my technical capabilities.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="max-w-7xl mx-auto px-6 py-24 md:py-32 border-t border-zinc-900/50 reveal">
+            <div id="skills-grid" class="grid grid-cols-1 md:grid-cols-12 gap-12">
+                <div class="md:col-span-4">
+                    <h3 class="text-3xl font-bold tracking-tight text-white mb-4">Core Skills</h3>
+                    <p class="text-zinc-500 font-light">Technologies and concepts I've learned and actively work with.
+                    </p>
+                </div>
+                <div class="md:col-span-8">
+                    <div id="skills-pills-container" class="flex flex-wrap gap-3">
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                HTML</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                CSS</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                JavaScript</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-brand-400 border-brand-800/50 transition-colors duration-300">
+                                MERN Stack</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                Networking</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                Java</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                Python</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                Security</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                SQL</div>
+                        </div>
+                        <div class="tilt-element cursor-default">
+                            <div
+                                class="tilt-wrapper glow-hover px-5 py-2.5 rounded-full bg-zinc-900/50 border border-zinc-800 text-zinc-300 transition-colors duration-300">
+                                PHP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="max-w-7xl mx-auto px-6 py-24 md:py-32 border-t border-zinc-900/50 reveal">
+            <div id="projects-header" class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div>
+                    <h3 class="text-4xl md:text-5xl font-bold tracking-tighter text-white mb-4">Selected Work</h3>
+                    <p class="text-zinc-500 font-light text-lg">A showcase of things I've built to learn and solve
+                        problems.</p>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                <!-- Project Card 1: Awesome Todos -->
+                <a id="project-card-awesome-todos" href="https://awesometodos-snowy.vercel.app/" target="_blank"
+                    rel="noopener noreferrer" class="tilt-element group h-full cursor-pointer block">
+                    <div
+                        class="tilt-wrapper bg-[#0a0a0a] border border-zinc-800/80 rounded-2xl p-8 glow-hover transition-colors duration-500 flex flex-col h-full overflow-hidden relative shadow-lg">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+
+                        <div class="mb-6 relative z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-brand-500/20 group-hover:text-brand-500 group-hover:border-brand-500/50 transition-all duration-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path d="M12 20h9" />
+                                    <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4 Z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+                                Awesome Todos
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="text-zinc-500 group-hover:text-white transition-colors">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" x2="21" y1="14" y2="3" />
+                                </svg>
+                            </h4>
+                            <p class="text-zinc-400 font-light leading-relaxed">
+                                A robust task management application designed to keep productivity high. Built with
+                                seamless CRUD operations, RESTful API endpoints, and a clean user interface.
+                            </p>
+                        </div>
+                        <div class="mt-auto pt-6 flex flex-wrap gap-2 relative z-10">
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">MERN
+                                Stack</span>
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">RESTful
+                                API</span>
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">CRUD
+                                Operations</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project Card 2: PawFolio -->
+                <div id="project-card-pawfolio" class="tilt-element group h-full cursor-pointer">
+                    <div
+                        class="tilt-wrapper bg-[#0a0a0a] border border-zinc-800/80 rounded-2xl p-8 glow-hover transition-colors duration-500 flex flex-col h-full overflow-hidden relative shadow-lg">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+
+                        <div class="mb-6 relative z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-brand-500/20 group-hover:text-brand-500 group-hover:border-brand-500/50 transition-all duration-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-5.224 4.668A3.999 3.999 0 0 0 5 18h14a3.999 3.999 0 0 0 4.223-8.207A4 4 0 0 0 17.997 5.125 3 3 0 1 0 12 5Z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-3 flex items-center justify-between">
+                                PawFolio
+                                <span
+                                    class="text-xs font-medium text-amber-400 bg-amber-950/40 px-3 py-1 rounded-full border border-amber-800/50">Coming
+                                    Soon!</span>
+                            </h4>
+                            <p class="text-zinc-400 font-light leading-relaxed">
+                                A dedicated pet care tracker. Helps pet owners log health records, set feeding
+                                schedules, and maintain an organized dashboard for their furry friends.
+                            </p>
+                        </div>
+                        <div class="mt-auto pt-6 flex flex-wrap gap-2 relative z-10">
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">MERN
+                                Stack</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Nursing Informatics -->
+                <a id="project-card-nursing-informatics" href="https://cxzucchini.github.io/jagodella/#introduction"
+                    target="_blank" rel="noopener noreferrer" class="tilt-element group h-full cursor-pointer block">
+                    <div
+                        class="tilt-wrapper bg-[#0a0a0a] border border-zinc-800/80 rounded-2xl p-8 glow-hover transition-colors duration-500 flex flex-col h-full overflow-hidden relative shadow-lg">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+
+                        <div class="mb-6 relative z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-brand-500/20 group-hover:text-brand-500 group-hover:border-brand-500/50 transition-all duration-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+                                Nursing Informatics
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="text-zinc-500 group-hover:text-white transition-colors">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" x2="21" y1="14" y2="3" />
+                                </svg>
+                            </h4>
+                            <p class="text-zinc-400 font-light leading-relaxed">
+                                A website focused on promoting excellence in gender-diverse healthcare environments,
+                                empowering nurses with advocacy skills.
+                            </p>
+                        </div>
+                        <div class="mt-auto pt-6 flex flex-wrap gap-2 relative z-10">
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">HTML</span>
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">CSS</span>
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">JavaScript</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project Card 4: Portfolio V1 -->
+                <a id="project-card-portfolio-v1" href="https://portfolio-tywv.vercel.app/" target="_blank"
+                    rel="noopener noreferrer" class="tilt-element group h-full cursor-pointer block">
+                    <div
+                        class="tilt-wrapper bg-[#0a0a0a] border border-zinc-800/80 rounded-2xl p-8 glow-hover transition-colors duration-500 flex flex-col h-full overflow-hidden relative shadow-lg">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+
+                        <div class="mb-6 relative z-10">
+                            <div
+                                class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-brand-500/20 group-hover:text-brand-500 group-hover:border-brand-500/50 transition-all duration-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
+                                    <line x1="3" x2="21" y1="9" y2="9" />
+                                    <line x1="9" x2="9" y1="21" y2="9" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+                                Portfolio V1
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="text-zinc-500 group-hover:text-white transition-colors">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" x2="21" y1="14" y2="3" />
+                                </svg>
+                            </h4>
+                            <p class="text-zinc-400 font-light leading-relaxed">
+                                The first iteration of my personal developer portfolio.
+                            </p>
+                        </div>
+                        <div class="mt-auto pt-6 flex flex-wrap gap-2 relative z-10">
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">HTML</span>
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-3 py-1 rounded-full border border-brand-800/50">CSS</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Project Card 5: GitHub Repositories (Full Width Banner) -->
+                <a id="project-card-github-repos" href="https://github.com/cxzucchini?tab=repositories" target="_blank"
+                    rel="noopener noreferrer" class="tilt-element group h-full cursor-pointer block md:col-span-2">
+                    <div
+                        class="tilt-wrapper bg-[#0a0a0a] border border-zinc-800/80 rounded-2xl p-8 glow-hover transition-colors duration-500 flex flex-col md:flex-row md:items-center justify-between h-full overflow-hidden relative shadow-lg">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                        </div>
+
+                        <div class="mb-6 md:mb-0 relative z-10 max-w-xl">
+                            <div
+                                class="w-12 h-12 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:bg-brand-500/20 group-hover:text-brand-500 group-hover:border-brand-500/50 transition-all duration-500">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path
+                                        d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                                    <path d="M9 18c-4.51 2-5-2-7-2" />
+                                </svg>
+                            </div>
+                            <h4 class="text-2xl font-bold text-white mb-3 flex items-center gap-2">
+                                GitHub Repositories
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    class="text-zinc-500 group-hover:text-white transition-colors">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" x2="21" y1="14" y2="3" />
+                                </svg>
+                            </h4>
+                            <p class="text-zinc-400 font-light leading-relaxed">
+                                Explore my full collection of open-source projects, public repositories, and code
+                                experiments on GitHub.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2 relative z-10 md:self-end">
+                            <span
+                                class="text-xs font-medium text-brand-400 bg-brand-900/20 px-4 py-2 rounded-full border border-brand-800/50">Open
+                                Source</span>
+                            <span
+                                class="text-xs font-medium text-zinc-400 bg-zinc-900 px-4 py-2 rounded-full border border-zinc-800">@cxzucchini</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="max-w-7xl mx-auto px-6 py-32 border-t border-zinc-900/50 reveal text-center">
+            <h2 class="text-4xl md:text-6xl font-black tracking-tighter text-white mb-6">Let's build something.</h2>
+            <p class="text-xl text-zinc-400 max-w-2xl mx-auto mb-10 font-light">
+                Whether it's a bug that needs squashing or a new idea to bring to life, I'm always open to discussing
+                new opportunities and projects.
+            </p>
+            <a href="mailto:jayilmessage@gmail.com"
+                class="inline-flex items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-medium hover:bg-zinc-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+                Say Hello
+            </a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-zinc-900 bg-[#050505] py-8 z-20 relative">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p class="text-zinc-600 text-sm font-light">
+                &copy; <span id="footer-year"></span> James Laurence Talagon. All rights reserved.
+            </p>
+            <div id="footer-socials" class="flex items-center gap-6 text-zinc-500">
+                <a href="https://github.com/cxzucchini" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-white transition-colors" title="GitHub">
+                    <span class="sr-only">GitHub</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+                        <path d="M9 18c-4.51 2-5-2-7-2" />
+                    </svg>
+                </a>
+                <a href="https://www.facebook.com/jamessage42" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-white transition-colors" title="Facebook">
+                    <span class="sr-only">Facebook</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3.61l.39-4H14V7a1 1 0 0 1 1-1h3z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/jayillt" target="_blank" rel="noopener noreferrer"
+                    class="hover:text-white transition-colors" title="Instagram">
+                    <span class="sr-only">Instagram</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
